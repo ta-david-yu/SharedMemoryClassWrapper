@@ -51,9 +51,6 @@ int main()
                     localData.AddUser(i);
                 }
                 sharedData.Unlock();
-                
-                //sharedData.Clear();
-                
                 return;
             }
             else if (pid < 0)
