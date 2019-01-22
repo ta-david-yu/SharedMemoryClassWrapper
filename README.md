@@ -1,7 +1,7 @@
 # SharedMemoryClassWrapper
 A class wrapper for one of the POSIX inter-process communication mechanism, shared memory.
 
-A school project back in 2017 require us to implment a multi-process server which make use of shared memeory to communicate between process; so I made this wrapper for ease of use.
+A school project back in NCTU require us to implment a multi-process server which make use of shared memeory to communicate between process; so I made this wrapper for ease of use.
 
 You should not use dynamic object with SharedMemory since dynamic memory is allocated from heap.
 Or you can implment an custom allocator that allocates a chunk of shared memory that could be used by dynamic object.
