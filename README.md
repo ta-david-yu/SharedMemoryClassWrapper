@@ -1,5 +1,7 @@
 # SharedMemoryClassWrapper
 A class wrapper for one of the POSIX inter-process communication mechanism, shared memory.
+You should not use dynamic object with SharedMemory since dynamic allocation happens on heap.
+Or you can implment an custom allocator that allocates a chunk of shared memory that could be used by dynamic object.
 
 # Example
 ```
@@ -8,6 +10,11 @@ struct Data
     int value;
     bool user[MAX_PROCESS];
     char msg[2048];
+    
+    Data() : value(0) { }
+    void AddUser(int id) { value += id; user[id] = true; }
+    void SetMsg(const std::string& str) { strcpy(msg, str.c_str()); }
+    std::string GetMsg() { return std::string(msg); }
 }
 
 int main()
